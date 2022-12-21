@@ -26,10 +26,11 @@ class Menu:
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
         'userid': '2'
         }
-    def get_menu(self) -> list:
+    def get_menu(self) -> str:
         response = requests.request("POST", self.URL, headers=self.HEADERS, data=self.PAYLOAD)
         menu = response.json()["dailymenu"]["meals"][0]["menuMembers"]
-        return [f"{meal['name'] : <40} {meal['calorivalue'] : >7} cal." for meal in menu]
+        # todo {meal['calorivalue'] : >7} cal.
+        return "".join(f"{meal['name'] : <40} \n" for meal in menu)
 
 if __name__ == '__main__':
     menu = Menu()
