@@ -1,14 +1,23 @@
 from PIL import Image,ImageFont,ImageDraw
 
 
-img = Image.open("empty_page.jpg")
-font = ImageFont.truetype("cassandra.ttf",32)
-draw = ImageDraw.Draw(img)
 
-text = "Menu!"
+class ImageGenerator:
+    def __init__(self):
+        self.img = Image.open("empty_page.jpg")
+        self.font = ImageFont.truetype("cassandra.ttf",25)
+        self.draw = ImageDraw.Draw(self.img)
 
-draw.text((110,150), text, 2,font=font)
+    def generate_menu(self,text):
+        coordinates = (150,150)
+        color = 2
+        self.draw.text(coordinates, text, font=self.font)
+        self.img.save("text.png")
 
 
-img.save("text.png")
- 
+if __name__ == '__main__':
+    generator = ImageGenerator()
+    generator.generate_menu("Hello world!")
+
+
+
