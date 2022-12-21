@@ -6,7 +6,7 @@ Daily Lunch Menu Instagram Bot
 - [x] Instagram
   - [x] Login
   - [x] Upload Image
-- [ ] Menu API
+- [X] Menu API
 - [ ] Image
   - [x] Generate Image
   - [ ] Generate Custom Image
